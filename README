@@ -1,0 +1,28 @@
+The root module (main.tf, variables.tf, outputs.tf, and terraform.tfvars) orchestrates the overall infrastructure deployment.
+The Azure module (modules/azure) manages Azure resources, including the AKS clusters, VNet, and VPN Gateway.
+The AWS module (modules/aws) manages AWS resources, including the VPC, RDS MySQL instance, and Application Load Balancer.
+The node_setup.sh script is used to configure the AKS nodes with the required software.
+To use this configuration:
+Ensure you have the Azure and AWS provider credentials set up correctly.
+Modify the terraform.tfvars file with your desired values.
+Run terraform init to initialize the Terraform working directory.
+Run terraform plan to see the execution plan.
+Run terraform apply to create the infrastructure.
+
+
+Structure:
+├── main.tf
+├── variables.tf
+├── outputs.tf
+├── terraform.tfvars
+├── modules/
+│   ├── azure/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   └── aws/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+└── scripts/
+    └── node_setup.sh
